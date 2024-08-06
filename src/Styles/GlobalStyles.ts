@@ -23,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
     -o-background-size: cover;
     background-size: cover;
     min-height: 100vh;
+    padding-top: 20px;
   }
 
   ul {

@@ -6,7 +6,7 @@ import TodoItem from "./TodoItem";
 
 const TodoListContainer = styled.div`
   max-width: 600px;
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 20px;
   background-color: #ffffff54;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
