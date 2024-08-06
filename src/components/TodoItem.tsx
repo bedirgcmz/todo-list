@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Todo } from "../hooks/useLocalStorage";
 import { FaTrashAlt } from "react-icons/fa";
-import { FaCheckCircle } from "react-icons/fa";
-import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
+import { MdCheckBoxOutlineBlank } from "react-icons/md";
+import { MdFactCheck } from "react-icons/md";
 
 interface TodoItemProps {
   todo: Todo;
@@ -14,9 +14,19 @@ interface TodoItemProps {
 const TodoItemContainer = styled.li<{ completed: boolean }>`
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 4px;
   display: flex;
   justify-content: space-between;
-  background-color: ${({ completed }) => (completed ? "#d3ffd3" : "white")};
+  cursor: pointer;
+  color: ${({ completed }) => (completed ? "#f6f6f6" : "gray")};
+  background-color: ${({ completed }) => (completed ? "#dddddda3" : "#fbfbfb00")};
+
+  &: hover {
+    background-color: #ffffff29;
+    color: #625f5f;
+    backdrop-filter: blur(10px);
+  }
 
   span {
     text-decoration: ${({ completed }) => (completed ? "line-through" : "none")};
@@ -24,10 +34,10 @@ const TodoItemContainer = styled.li<{ completed: boolean }>`
 `;
 
 const FaTrashAltStyles = styled.i`
-  color: red;
+  color: #b43f3f;
 `;
 const FaCheckCircleStyles = styled.i<{ completed: boolean }>`
-  color: ${({ completed }) => (completed ? "#50B498" : "#DD5746")};
+  color: ${({ completed }) => (completed ? "#f6f6f6" : "#DD5746")};
   margin-right: 12px;
 `;
 
@@ -37,7 +47,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
       <span>{todo.text}</span>
       <span>
         <FaCheckCircleStyles completed={todo.completed}>
-          {todo.completed ? <IoCheckmarkDoneCircleSharp /> : <FaCheckCircle />}
+          {todo.completed ? <MdFactCheck /> : <MdCheckBoxOutlineBlank />}
         </FaCheckCircleStyles>
         <FaTrashAltStyles onClick={() => onDelete(todo.id)}>
           <FaTrashAlt />

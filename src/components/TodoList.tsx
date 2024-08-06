@@ -5,12 +5,13 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import TodoItem from "./TodoItem";
 
 const TodoListContainer = styled.div`
-  max-width: 500px;
+  max-width: 600px;
   margin: 20px auto;
   padding: 20px;
-  background-color: white;
+  background-color: #ffffff54;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  backdrop-filter: blur(10px);
 `;
 
 const InputContainer = styled.div`
